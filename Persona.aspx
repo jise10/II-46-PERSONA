@@ -45,9 +45,10 @@
     <div class="form-group">
         <asp:Label ID="lblTipoDoc" runat="server" Text=" Tipo Documento" CssClass="control-label"></asp:Label>
         <asp:DropDownList ID="ddlTipoDocumento" runat="server" CssClass="form-control">
-            <asp:ListItem Text="Cédula Jurídica" Value="0"></asp:ListItem>
+            <asp:ListItem Text="Seleccione un tipo de documento " Value="0"></asp:ListItem>
             <asp:ListItem Text="Cédula Física" Value="1"></asp:ListItem>
             <asp:ListItem Text="Pasaporte" Value="2"></asp:ListItem>
+            <asp:ListItem Text="Cédula Jurídica" Value="3"></asp:ListItem>
         </asp:DropDownList>
 
     </div>
