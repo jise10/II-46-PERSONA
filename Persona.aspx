@@ -67,7 +67,12 @@
     </div>
   <asp:Label ID="lblMensaje" runat="server"></asp:Label>
      
-    <asp:GridView ID="gvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Persona" DataSourceID="SqlDataSource1" Width="500px">
+    <asp:GridView ID="gvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Persona"
+        OnRowDeleting="gvPersonas_RowDeleting"
+        OnRowEditing="gvPersonas_RowEditing"
+        OnRowCancelingEdit="gvPersonas_RowCancelingEdit"
+        OnRowUpdating="gvPersonas_RowUpdating"
+        DataSourceID="SqlDataSource1" Width="500px">
         <Columns>
             <asp:BoundField DataField="Id_Persona" HeaderText="Id_Persona" InsertVisible="False" ReadOnly="True" SortExpression="Id_Persona" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
@@ -76,6 +81,8 @@
             <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
             <asp:BoundField DataField="Numero_Documento" HeaderText="Numero_Documento" SortExpression="Numero_Documento" />
             <asp:BoundField DataField="Tipo_Documento" HeaderText="Tipo_Documento" SortExpression="Tipo_Documento" />
+             <asp:CommandField ShowDeleteButton ="True" ShowEditButton ="true" />
+
         </Columns>
     </asp:GridView>
 
@@ -83,7 +90,10 @@
 
 
    
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II_46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II_46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Personas] ORDER BY [Apellidos]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+    ConnectionString="<%$ ConnectionStrings:II_46ConnectionString %>" 
+    ProviderName="<%$ ConnectionStrings:II_46ConnectionString.ProviderName %>" 
+    SelectCommand="SELECT * FROM [Personas] ORDER BY [Apellidos]"></asp:SqlDataSource>
 
 
 
