@@ -41,13 +41,13 @@ Partial Public Class Persona
     Protected WithEvents rfvNombre As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control Label1.
+    '''Control lblApellidos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblApellidos As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txtApellidos.
@@ -95,13 +95,13 @@ Partial Public Class Persona
     Protected WithEvents rfvFecha As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control Label3.
+    '''Control lblCorreo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblCorreo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txtCorreo.
@@ -167,6 +167,15 @@ Partial Public Class Persona
     Protected WithEvents rfvNumDoc As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''Control hfIdPersona.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents hfIdPersona As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''Control btnGuardar.
     '''</summary>
     '''<remarks>
@@ -176,13 +185,22 @@ Partial Public Class Persona
     Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control lblMensaje.
+    '''Control btnActualizar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnActualizar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control BtnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnCancelar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control gvPersonas.

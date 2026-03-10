@@ -15,8 +15,8 @@ Public Class Persona
         ' VALIDAR FECHA
 
         If Not IsDate(txtFechaNac.Text) Then
-            lblMensaje.Text = "La fecha de nacimiento no es válida."
-            lblMensaje.CssClass = "alert alert-danger"
+            'lblMensaje.Text = "La fecha de nacimiento no es válida."
+            ' lblMensaje.CssClass = "alert alert-danger"
             Return
         End If
 
@@ -45,6 +45,7 @@ Public Class Persona
                            "Persona creada",
                            $"La persona {persona.Nombre} {persona.Apellidos} ha sido creada exitosamente.",
                            "success")
+            LimpiarFormulario()
 
 
         Else
@@ -54,6 +55,7 @@ Public Class Persona
                                 "Ocurrió un error al intentar crear la persona.")
 
         End If
+
 
     End Sub
 
@@ -94,4 +96,61 @@ Public Class Persona
         gvPersonas.EditIndex = -1
 
     End Sub
+
+    Protected Sub btnActualizar_Click(sender As Object, e As EventArgs)
+        LimpiarFormulario()
+
+
+    End Sub
+    Protected Sub gvPersonas_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+        hfIdPersona.Value = gvPersonas.DataKeys(gvPersonas.SelectedIndex).Value
+        Dim id As Integer = Convert.ToInt32(hfIdPersona.Value)
+
+        Dim errorMessage As String = ""
+
+        Dim p As Models.Persona = dbPersona.ConsultarPersona(id)
+
+        If p Is Nothing Then
+            SwalUtils.ShowSwalError(Me, If(errorMessage = "", "No se pudo cargar la persona.", errorMessage))
+            Return
+        End If
+
+        txtNumeroDoc.Text = p.NumeroDocumento
+        txtNombre.Text = p.Nombre
+        txtApellidos.Text = p.Apellidos
+        ddlTipoDocumento.SelectedValue = p.TipoDocummento
+        txtCorreo.Text = p.Correo
+        txtFechaNac.Text = p.FechaNacimiento.ToString("yyyy-MM-dd")
+        btnGuardar.Visible = False
+        btnActualizar.Visible = True
+        BtnCancelar.Visible = True
+
+
+    End Sub
+
+    Protected Sub BtnCancelar_Click(sender As Object, e As EventArgs)
+        btnGuardar.Visible = True
+        btnActualizar.Visible = False
+        BtnCancelar.Visible = False
+        LimpiarFormulario()
+
+    End Sub
+
+    Protected Sub LimpiarFormulario()
+        txtNumeroDoc.Text = ""
+        txtNombre.Text = ""
+        txtApellidos.Text = ""
+        ddlTipoDocumento.SelectedIndex = 0
+        txtCorreo.Text = ""
+        txtFechaNac.Text = ""
+    End Sub
+
+
+
+
+
+
+
+
 End Class

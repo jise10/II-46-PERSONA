@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports PERSONA.Utils
 
 Public Class dbPersona
 
@@ -44,5 +45,26 @@ Public Class dbPersona
         Return dbHelper.ExecuteNonQuery(sql, parametros) > 0
 
     End Function
+    Public Function ConsultarPersona(id As Integer) As Models.Persona
+        Dim sql As String = "SELECT * FROM Personas WHERE Id_Persona = @Id"
+        Dim parametros As New List(Of SqlParameter) From {
+            New SqlParameter("@Id", id)
+        }
+        Dim reader As SqlDataReader = dbHelper.ExecuteReader(sql, parametros)
+        If reader.Read() Then
+            Dim persona As New Models.Persona() With {
+                .Nombre = reader("Nombre").ToString(),
+                .Apellidos = reader("Apellidos").ToString(),
+                .Correo = reader("Correo").ToString(),
+                .FechaNacimiento = Convert.ToDateTime(reader("Fecha_Nacimiento")),
+                .NumeroDocumento = reader("Numero_Documento").ToString(),
+                .TipoDocummento = reader("Tipo_Documento").ToString()
+            }
+            Return persona
+        End If
+        Return Nothing
+    End Function
+
+
 
 End Class
